@@ -4,12 +4,13 @@
 #include <android/log.h>
 #include "libget/getutil.h"
 #include "libcount/countutil.h"
+#include "libcanary/comm/io_canary_utils.h"
 
-extern "C" JNIEXPORT jstring
 #define LOG_TAG "JNI_TAG"
 #define LOGI(...) __android_log_print(ANDROID_LOG_INFO,LOG_TAG,__VA_ARGS__)
 
-JNICALL
+extern "C"
+JNIEXPORT jstring JNICALL
 Java_com_chang_iocanarylearn_MainActivity_stringFromJNI(
         JNIEnv *env,
         jobject /* this */) {
@@ -21,3 +22,12 @@ Java_com_chang_iocanarylearn_MainActivity_stringFromJNI(
 }
 
 
+extern "C"
+JNIEXPORT jlong JNICALL
+Java_com_chang_iocanarylearn_MainActivity_getTimeFromJNI(JNIEnv *env, jobject) {
+    int64_t x = iocanary::GetSysTimeMicros();
+    int64_t xx = iocanary::GetSysTimeMilliSecond();
+    LOGI("GaoChang %d",x);
+    LOGI("GaoChang %d",xx);
+    return x;
+}

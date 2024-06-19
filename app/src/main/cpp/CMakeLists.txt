@@ -35,10 +35,12 @@ add_library(${CMAKE_PROJECT_NAME} SHARED
 # 添加子目录的cmakelists
 add_subdirectory(${CMAKE_SOURCE_DIR}/libget)
 add_subdirectory(${CMAKE_SOURCE_DIR}/libcount)
+add_subdirectory(${CMAKE_SOURCE_DIR}/libcanary)
 
 target_link_libraries(${CMAKE_PROJECT_NAME}
         # List libraries link to the target library
         android
         log
         get
+        canary
         count)

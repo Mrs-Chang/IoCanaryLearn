@@ -16,14 +16,15 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         // Example of a call to a native method
-        binding.sampleText.text = stringFromJNI()
+        binding.sampleText.text = getTimeFromJNI().toString()
     }
 
     /**
      * A native method that is implemented by the 'iocanarylearn' native library,
      * which is packaged with this application.
      */
-    external fun stringFromJNI(): String
+    private external fun stringFromJNI(): String
+    private external fun getTimeFromJNI(): Long
 
     companion object {
         // Used to load the 'iocanarylearn' library on application startup.
