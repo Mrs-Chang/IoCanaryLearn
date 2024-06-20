@@ -25,9 +25,6 @@ Java_com_chang_iocanarylearn_MainActivity_stringFromJNI(
 extern "C"
 JNIEXPORT jlong JNICALL
 Java_com_chang_iocanarylearn_MainActivity_getTimeFromJNI(JNIEnv *env, jobject) {
-    int64_t x = iocanary::GetSysTimeMicros();
-    int64_t xx = iocanary::GetSysTimeMilliSecond();
-    LOGI("GaoChang %d",x);
-    LOGI("GaoChang %d",xx);
-    return x;
+
+    return 1;
 }

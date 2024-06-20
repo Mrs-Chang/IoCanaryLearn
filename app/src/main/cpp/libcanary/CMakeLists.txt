@@ -1,5 +1,11 @@
 cmake_minimum_required(VERSION 3.22.1)
 
-file(GLOB SOURCE comm/*.cpp)
-file(GLOB SOURCE core/*.cpp)
-add_library(canary SHARED ${SOURCE}) #=>libcanary.so
+file(GLOB COMM_SOURCE comm/*.cpp)
+file(GLOB CORE_SOURCE core/*.cpp)
+file(GLOB DETECTOR_SOURCE detector/*.cpp)
+
+set(SOURCE_FILES ${COMM_SOURCE} ${CORE_SOURCE} ${DETECTOR_SOURCE})
+
+add_library(canary SHARED ${SOURCE_FILES}) #=>libcanary.so
+
+target_include_directories(canary PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/comm ${CMAKE_CURRENT_SOURCE_DIR}/core ${CMAKE_CURRENT_SOURCE_DIR}/detector)

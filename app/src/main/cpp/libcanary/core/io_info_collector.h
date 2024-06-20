@@ -13,7 +13,7 @@
 #include <mutex>
 #include <unordered_map>
 
-#include "comm/io_canary_utils.h"
+#include "io_canary_utils.h"
 
 namespace iocanary {
 

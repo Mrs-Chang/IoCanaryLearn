@@ -3,7 +3,7 @@
 //
 #include "io_info_collector.h"
 #include <thread>
-#include "comm/io_canary_utils.h"
+#include "io_canary_utils.h"
 
 namespace iocanary {
 
