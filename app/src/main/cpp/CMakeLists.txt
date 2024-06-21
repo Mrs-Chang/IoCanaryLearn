@@ -9,7 +9,7 @@ cmake_minimum_required(VERSION 3.22.1)
 # Since this is the top level CMakeLists.txt, the project name is also accessible
 # with ${CMAKE_PROJECT_NAME} (both CMake variables are in-sync within the top level
 # build script scope).
-project("iocanarylearn")
+project("io-canary")
 
 # Creates and names a library, sets it as either STATIC
 # or SHARED, and provides the relative paths to its source code.
@@ -26,7 +26,7 @@ project("iocanarylearn")
 # used in the AndroidManifest.xml file.
 add_library(${CMAKE_PROJECT_NAME} SHARED
         # List C/C++ source files with relative paths to this CMakeLists.txt.
-        native-lib.cpp)
+        native-lib.cpp native-canary-jni.cpp)
 
 # Specifies libraries CMake should link to your target library. You
 # can link libraries from various origins, such as libraries defined in this
@@ -36,6 +36,7 @@ add_library(${CMAKE_PROJECT_NAME} SHARED
 add_subdirectory(${CMAKE_SOURCE_DIR}/libget)
 add_subdirectory(${CMAKE_SOURCE_DIR}/libcount)
 add_subdirectory(${CMAKE_SOURCE_DIR}/libcanary)
+add_subdirectory(${CMAKE_SOURCE_DIR}/libxhook)
 
 target_link_libraries(${CMAKE_PROJECT_NAME}
         # List libraries link to the target library
@@ -43,4 +44,5 @@ target_link_libraries(${CMAKE_PROJECT_NAME}
         log
         get
         canary
-        count)
+        count
+        xhook)

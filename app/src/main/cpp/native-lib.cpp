@@ -5,6 +5,9 @@
 #include "libget/getutil.h"
 #include "libcount/countutil.h"
 #include "libcanary/comm/io_canary_utils.h"
+#include "libcanary/core/io_canary.h"
+#include "libcanary/detector/detector.h"
+#include "libcanary/core/io_canary_env.h"
 
 #define LOG_TAG "JNI_TAG"
 #define LOGI(...) __android_log_print(ANDROID_LOG_INFO,LOG_TAG,__VA_ARGS__)
@@ -25,6 +28,5 @@ Java_com_chang_iocanarylearn_MainActivity_stringFromJNI(
 extern "C"
 JNIEXPORT jlong JNICALL
 Java_com_chang_iocanarylearn_MainActivity_getTimeFromJNI(JNIEnv *env, jobject) {
-
     return 1;
 }

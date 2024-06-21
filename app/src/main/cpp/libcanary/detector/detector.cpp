@@ -16,8 +16,7 @@ namespace iocanary {
     }
 
     std::string Issue::GenKey(const IOInfo &file_io_info) {
-        //return MD5(file_io_info.path_ + ":" + GetLatestStack(file_io_info.java_context_.stack_, 4));
-        return "xxx";
+        return MD5(file_io_info.path_ + ":" + GetLatestStack(file_io_info.java_context_.stack_, 4));
     }
 
     bool FileIODetector::IsIssuePublished(const std::string &key) {

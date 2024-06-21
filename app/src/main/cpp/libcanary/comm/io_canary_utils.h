@@ -23,7 +23,7 @@ namespace iocanary{
     std::string GetLatestStack(const std::string& stack, int count);
     void Split(const std::string &src_str, std::vector<std::string> &sv, const char delim, int cnt = 0);
     int GetFileSize(const char* file_path);
-    //std::string MD5(std::string);
+    std::string MD5(std::string);
 }
 
 #endif //IOCANARYLEARN_IO_CANARY_UTILS_H

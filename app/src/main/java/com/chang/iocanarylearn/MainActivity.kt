@@ -29,7 +29,7 @@ class MainActivity : AppCompatActivity() {
     companion object {
         // Used to load the 'iocanarylearn' library on application startup.
         init {
-            System.loadLibrary("iocanarylearn")
+            System.loadLibrary("io-canary")
         }
     }
 }

@@ -8,6 +8,7 @@
 #include <unistd.h>
 #include <sstream>
 #include <regex>
+#include "md5.h"
 
 namespace iocanary {
     int64_t GetSysTimeMicros() {
@@ -85,11 +86,11 @@ namespace iocanary {
         return stat_buf.st_size;
     }
 
-//    std::string MD5(std::string str) {
-//        unsigned char sig[16] = {0};
-//        MD5_buffer(str.c_str(), str.length(), sig);
-//        char des[33] = {0};
-//        MD5_sig_to_string((const char *) sig, des);
-//        return std::string(des);
-//    }
+    std::string MD5(std::string str) {
+        unsigned char sig[16] = {0};
+        MD5_buffer(str.c_str(), str.length(), sig);
+        char des[33] = {0};
+        MD5_sig_to_string((const char *) sig, des);
+        return std::string(des);
+    }
 }

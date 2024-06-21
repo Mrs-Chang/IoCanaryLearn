@@ -9,9 +9,6 @@ namespace iocanary {
     void FileIOMainThreadDetector::Detect(const IOCanaryEnv &env, const IOInfo &file_io_info,
                                           std::vector<Issue>& issues) {
 
-        //__android_log_print(ANDROID_LOG_ERROR, "FileIOMainThreadDetector", "Detect  main-thread-id：%d, thread-id:%d max_continual_rw_cost_time_μs_:%d threshold:%d"
-        //      , env.GetJavaMainThreadID(), file_io_info.java_context_.thread_id_, file_io_info.max_continual_rw_cost_time_μs_, env.GetMainThreadThreshold());
-
         if (GetMainThreadId() == file_io_info.java_context_.thread_id_) {
             int type = 0;
             if (file_io_info.max_once_rw_cost_time_μs_ > IOCanaryEnv::kPossibleNegativeThreshold) {
